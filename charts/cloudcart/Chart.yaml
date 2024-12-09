@@ -1,0 +1,20 @@
+apiVersion: v2
+name: cloudcart
+description: CloudCart Helm Chart
+version: 1.0.0
+
+    charts/cloudcart/values.yaml
+
+replicaCount: 1
+image:
+  backend: cloudcart/backend:latest
+  frontend: cloudcart/frontend:latest
+service:
+  type: LoadBalancer
+ingress:
+  enabled: true
+  hosts:
+    - host: cloudcart.example.com
+      paths:
+        - path: /
+          pathType: Prefix

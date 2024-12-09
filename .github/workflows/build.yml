@@ -1,0 +1,15 @@
+name: Build Application
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Build Docker Images
+        run: |
+          docker build -t cloudcart/backend ./backend
+          docker build -t cloudcart/frontend ./frontend

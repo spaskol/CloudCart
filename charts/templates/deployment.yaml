@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudcart
+  labels:
+    app: cloudcart
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: cloudcart
+  template:
+    metadata:
+      labels:
+        app: cloudcart
+    spec:
+      containers:
+      - name: backend
+        image: {{ .Values.image.backend }}
+        ports:
+        - containerPort: 8080
+      - name: frontend
+        image: {{ .Values.image.frontend }}
+        ports:
+        - containerPort: 3000

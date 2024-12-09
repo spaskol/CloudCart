@@ -1,0 +1,10 @@
+{
+  "name": "cloudcart-backend",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.17.0"
+  },
+  "scripts": {
+    "start": "node src/app.js"
+  }
+}
